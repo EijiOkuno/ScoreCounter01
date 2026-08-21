@@ -1,10 +1,12 @@
-const MAX_BYTES = 5 * 1024 * 1024;
+const MAX_BYTES = 15 * 1024 * 1024;
 
 const MIME_BY_EXT: Record<string, string> = {
 	jpg: 'image/jpeg',
 	jpeg: 'image/jpeg',
 	png: 'image/png',
-	webp: 'image/webp'
+	webp: 'image/webp',
+	heic: 'image/heic',
+	heif: 'image/heif'
 };
 
 /** JPEG は .jpg / .jpeg / image/jpg をすべて image/jpeg に正規化する */
@@ -18,6 +20,9 @@ export function resolveImageMime(file: File): string | null {
 		return 'image/jpeg';
 	}
 	if (type === 'image/png' || type === 'image/webp') {
+		return type;
+	}
+	if (type === 'image/heic' || type === 'image/heif') {
 		return type;
 	}
 

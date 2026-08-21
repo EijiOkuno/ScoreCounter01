@@ -48,6 +48,7 @@ export const ERROR_MESSAGES: Record<ErrorCode, string> = {
 	TOO_DARK: '画像が暗すぎます。明るい場所で撮影してください。',
 	PERSON_TOO_SMALL: '人物が小さすぎます。もう少し近づいて撮影してください。',
 	LOW_CONFIDENCE: '解析の確度が低いです。明るい場所で全身を正面から撮り直してください。',
-	INVALID_IMAGE: '画像の形式またはサイズが不正です。JPEG / PNG / WebP、5MB以下で送信してください。',
+	INVALID_IMAGE:
+		'画像の形式またはサイズが不正です。JPEG / PNG / WebP、15MB以下で送信してください。',
 	API_ERROR: '解析に失敗しました。しばらくしてからもう一度お試しください。'
 };
