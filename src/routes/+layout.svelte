@@ -11,6 +11,10 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>SCOUTER</title>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+	/>
 </svelte:head>
 
 <div class="app">

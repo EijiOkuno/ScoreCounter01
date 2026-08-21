@@ -69,10 +69,14 @@ body {
 	padding: 34px 22px 26px;
 	padding-top: max(34px, env(safe-area-inset-top));
 	padding-bottom: max(26px, env(safe-area-inset-bottom));
+	width: 100%;
+	max-width: 430px;
+	margin: 0 auto;
 }
 
 .screen-slot.fullbleed {
 	padding: 0;
+	max-width: none;
 }
 
 .dot {
@@ -265,6 +269,137 @@ body {
 	transform: translate(-50%, -50%);
 	z-index: 2;
 	pointer-events: none;
+}
+
+.frame-bust {
+	top: 48%;
+	width: 70%;
+	height: 42%;
+}
+
+.cam-label {
+	margin-bottom: 8px;
+	font-family: var(--mono);
+}
+
+.hud-panel {
+	position: absolute;
+	left: 50%;
+	top: 22%;
+	transform: translateX(-50%);
+	z-index: 3;
+	width: min(86%, 320px);
+	text-align: center;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.35s ease;
+}
+
+.hud-panel.active {
+	opacity: 1;
+}
+
+.hud-power {
+	font-size: 64px;
+	margin-top: 4px;
+}
+
+.hud-hr {
+	margin-top: 10px;
+	margin-bottom: 12px;
+	width: 70%;
+}
+
+.hud-statuses {
+	gap: 4px;
+}
+
+.hud-statuses p {
+	font-size: 11px;
+	letter-spacing: 0.18em;
+}
+
+.hud-meta {
+	margin: 10px 0 0;
+	font-family: var(--mono);
+	font-size: 10px;
+	letter-spacing: 0.2em;
+	color: var(--soft);
+}
+
+.hud-progress {
+	margin: 12px auto 0;
+	width: 160px;
+}
+
+.cam-height-bar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 108px;
+	z-index: 3;
+	display: flex;
+	justify-content: center;
+	pointer-events: none;
+}
+
+.cam-height-bar .height-field {
+	pointer-events: auto;
+	padding: 6px 10px;
+	background: rgba(5, 8, 5, 0.72);
+	border: 1px solid rgba(57, 255, 20, 0.22);
+}
+
+.height-field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	color: var(--soft);
+	font-family: var(--mono);
+}
+
+.height-field input {
+	width: 64px;
+	height: 26px;
+	border: 1px solid var(--dark);
+	background: rgba(5, 8, 5, 0.7);
+	color: var(--green);
+	font-family: var(--mono);
+	font-size: 13px;
+	text-align: center;
+	border-radius: 2px;
+}
+
+.height-field input:focus {
+	outline: none;
+	border-color: var(--green);
+}
+
+.live-error {
+	position: absolute;
+	left: 16px;
+	right: 16px;
+	bottom: 148px;
+	z-index: 3;
+	margin: 0;
+	padding: 10px 12px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 1.5;
+	color: var(--green);
+	background: rgba(5, 8, 5, 0.82);
+	border: 1px solid rgba(57, 255, 20, 0.35);
+}
+
+.cam-hint-text {
+	display: block;
+	font-size: 11px;
+	color: var(--dim);
+	font-family: var(--mono);
+	letter-spacing: 0.08em;
+	margin-bottom: 4px;
 }
 
 .bracket {

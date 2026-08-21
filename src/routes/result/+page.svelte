@@ -47,6 +47,14 @@
 		<div class="power">{displayPower}</div>
 		<div class="hr"></div>
 		<div>
+			{#if result.framing}
+				<div class="stat-row">
+					<span class="lbl">FRAMING</span>
+					<div class="valwrap">
+						<span class="val">{result.framing.toUpperCase()}</span>
+					</div>
+				</div>
+			{/if}
 			<div class="stat-row">
 				<span class="lbl">HEIGHT</span>
 				<div class="valwrap"><span class="val">{result.height_cm}cm</span></div>

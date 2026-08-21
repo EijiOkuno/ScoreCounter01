@@ -1,6 +1,7 @@
 import type { AnalyzeFailure, AnalyzeSuccess } from '$lib/types/analysis';
 
 let pendingImage: Blob | null = null;
+let pendingHeightCm: number | null = null;
 
 export function setPendingImage(blob: Blob) {
 	pendingImage = blob;
@@ -10,6 +11,16 @@ export function takePendingImage(): Blob | null {
 	const blob = pendingImage;
 	pendingImage = null;
 	return blob;
+}
+
+export function setPendingHeight(cm: number | null) {
+	pendingHeightCm = cm;
+}
+
+export function takePendingHeight(): number | null {
+	const value = pendingHeightCm;
+	pendingHeightCm = null;
+	return value;
 }
 
 const RESULT_KEY = 'scouter-result';
@@ -37,6 +48,7 @@ export function loadError(): AnalyzeFailure['error'] | null {
 
 export function clearSession() {
 	pendingImage = null;
+	pendingHeightCm = null;
 	sessionStorage.removeItem(RESULT_KEY);
 	sessionStorage.removeItem(ERROR_KEY);
 }

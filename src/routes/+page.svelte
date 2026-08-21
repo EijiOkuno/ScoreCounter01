@@ -6,5 +6,5 @@
 </div>
 <div class="top-foot">
 	<a class="btn" href="/camera">測定開始</a>
-	<div class="top-hint">全身・1人・正面・明るい場所</div>
+	<div class="top-hint">顔と両肩・1人・正面・明るい場所</div>
 </div>

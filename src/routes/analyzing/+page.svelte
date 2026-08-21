@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { takePendingImage, saveResult, saveError } from '$lib/analysis-session';
+	import { takePendingHeight, takePendingImage, saveResult, saveError } from '$lib/analysis-session';
 	import type { AnalyzeResponse } from '$lib/types/analysis';
 
-	const MIN_WAIT_MS = 1600;
+	const MIN_WAIT_MS = 1200;
 	let line = $state(0);
 
 	onMount(() => {
@@ -17,6 +17,7 @@
 
 	async function runAnalyze() {
 		const blob = takePendingImage();
+		const height = takePendingHeight();
 		if (!blob) {
 			await goto('/camera');
 			return;
@@ -24,10 +25,11 @@
 
 		const started = Date.now();
 		const form = new FormData();
-		const file = new File([blob], 'capture.jpg', {
-			type: blob.type || 'image/jpeg'
-		});
-		form.append('image', file);
+		form.append(
+			'image',
+			new File([blob], 'capture.jpg', { type: blob.type || 'image/jpeg' })
+		);
+		if (height !== null) form.append('height_cm', String(height));
 
 		let data: AnalyzeResponse;
 		try {
